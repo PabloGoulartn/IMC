@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+
 *{
     margin: 0;
     padding: 0;
+    border: none;
 }
 
 body{
@@ -9,6 +12,7 @@ body{
     align-items: center;
     justify-content: center;
     background-color: #0d0118;
+    font-family: 'Outfit', sans-serif;
 }
 
 .content{
@@ -26,6 +30,8 @@ h1
 {
     margin-top: 20px;
     color: #afe25c;
+    font-size: 30px;
+    padding-bottom: 10px;
 }
 
 .imcForm{
@@ -44,15 +50,24 @@ h1
 label
 {
     color: white;
+    margin-bottom: 10px;
+    margin-left: 5px;
 }
 
 .user-input{
     height: 50px;
     margin: 0px 0 20px 0;
+    border-radius: 10px;
+    padding-left: 10px;
 }
 
 .calculate-btn{
     height: 50px;
+    background-color: #afe25c;
+    color: #8a2bcc;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 10px;
 }
 
 .result-area{
@@ -66,4 +81,8 @@ label
 .resultTextarea{
     width: 90%;
     resize: none;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 10px;
 }

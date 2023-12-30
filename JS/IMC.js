@@ -8,27 +8,35 @@ function getTextArea()
     return document.querySelector('textarea');
 }
 
-function calculateIMC()
+function calculateIMC(weight, height)
 {
-    const weight = document.querySelector('#weightInput').value;
-    const height = document.querySelector('#heightInput').value;
-
-    if (weight && height)
-        return (weight / Math.pow(height, 2) * 10000).toFixed(2);
-    else
-    {
-        getTextArea().textContent = '';
-        return 'Preencha os campos';
-    }
+    return (weight / Math.pow(height, 2) * 10000).toFixed(2);
 }
 
 document.querySelector('.calculate-btn').addEventListener('click', function(){
-    if (calculateIMC() > 24.99)
+
+    const weight = document.querySelector('#weightInput').value;
+    const height = document.querySelector('#heightInput').value;
+
+    if (!weight && !height)
     {
-        getTextArea().textContent = `${getUserName()}, seu IMC é ${calculateIMC()}. Você está acima do peso. `;
+        getTextArea().textContent = 'Preencha os campos com valores válidos.';
     }
-    else if (calculateIMC() < 18.50)
+    else
     {
-        getTextArea().textContent = `${getUserName()}, seu IMC é ${calculateIMC()}. Você está abaixo do peso. `;
+        const imc = calculateIMC(weight, height);
+
+        if (imc > 24.99)
+        {
+            getTextArea().textContent = `${getUserName()}, seu IMC é ${imc}. Você está acima do peso.`;
+        }
+        else if (imc < 18.50)
+        {
+            getTextArea().textContent = `${getUserName()}, seu IMC é ${imc}. Você está abaixo do peso.`;
+        }
+        else
+        {
+            getTextArea().textContent = `${getUserName()}, seu IMC é ${imc}. Seu peso está dentro da faixa saudável.`;
+        }
     }
 });
