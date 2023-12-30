@@ -65,4 +65,5 @@ label
 
 .resultTextarea{
     width: 90%;
+    resize: none;
 }
